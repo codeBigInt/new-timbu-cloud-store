@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    gap: 1em;
+}
+.container img{
+    max-width: 300px;
+}
+.container a{
+    padding: 1em;
+    background: var(--primaryColor);
+    color: white;
+    border-radius: 15px;
+}

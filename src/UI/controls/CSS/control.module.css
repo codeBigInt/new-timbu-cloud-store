@@ -1,0 +1,37 @@
+.controls {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    border-radius: 13px;
+    padding: .6em;
+    gap: .5em;
+    background: var(--primaryColor);
+}
+.controls:active{
+    transform: translateY(3px);
+}
+
+.input {
+    color: white;
+    width: 40%;
+    border: 1px solid white;
+    border-radius: 13px;
+    text-align: center;
+    background: transparent;
+
+}
+
+.btn {
+    color: white;
+    width: 25%;
+    padding: .7em;
+    background: transparent;
+}
+
+@media screen and (min-width: 960px) {
+    
+    .input {
+        width: 60%;
+        flex: 1;
+    }
+}

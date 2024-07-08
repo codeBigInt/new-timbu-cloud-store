@@ -1,0 +1,62 @@
+@import url('../../assets/global.css');
+
+.container{
+    padding: 0 5%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.rightCont{
+    justify-content: flex-end;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.categories{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    padding-top: 40px;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.intro{
+    font-weight: bolder;
+    padding-top: 40px;
+    width: 100%;
+}
+.infoText{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3em;
+    font-size: 18px;
+}
+.greyText{
+    color: #a9a9a9;
+}
+
+
+.link a:visited{
+    color: var(--primaryColor);
+}
+.active{
+    color: var(--primaryColor);
+}
+
+
+@media screen and (min-width: 960px) {
+    .container{
+        padding: 0 6%;
+    }
+}
+@media screen and (min-width: 760px) {
+    .categories{
+        justify-content: center;
+        overflow: hidden;
+    }
+}

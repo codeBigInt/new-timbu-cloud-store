@@ -1,0 +1,122 @@
+.subTotal, .total{
+    margin-top: 1em;
+    padding: 1em 0;
+    border-bottom: 1px solid var(--grey);
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-top: 30px;
+}
+.btn{
+    padding: .5em;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #333;
+}
+.total{
+    
+    border-bottom: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.container form{
+    margin: 2em 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.container form input{
+    background: var(--grey);
+    padding: .8em;
+    border-radius: 7px;
+}
+.card_field{
+    background: var(--grey);
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    gap: 1em;
+    border-radius: 7px;
+}
+.title{
+    text-align: center;
+}
+.instruction{
+    padding: 1em 0;
+    font-size: 12px;
+}
+.card_field input{
+    flex: 1;
+}
+label{
+    font-size: 14px;
+}
+
+.secret{
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+}
+.secret_field{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 50%;
+}
+.card_cont{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 70%;
+}
+.card_cont h3{
+    font-size: 14px;
+}
+.option{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: var(--grey);
+    align-self: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 1em;
+    margin: 1em 0;
+}
+.submit{
+    padding: .7em;
+    background: #333;
+    color: white;
+    font-size: 18px;
+    border-radius: 15px;
+}
+.invalid{
+    background: var(--grey);
+    color: #a9a9a9;
+}
+@media screen and (max-width: 480px) {
+    .card_cont{
+        width: 100%;
+    }
+    .option img{
+        max-width: 75px;
+        height: auto;
+    }
+    .secret_field{
+        width: 45%;
+    }
+}

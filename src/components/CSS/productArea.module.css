@@ -1,0 +1,17 @@
+.container{
+    width: 100%;
+    gap: 2em;
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .container{
+        justify-content: center;
+        gap: 1.5em;
+    }
+}

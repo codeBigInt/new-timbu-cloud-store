@@ -1,0 +1,13 @@
+:root{
+    --primaryColor: #ff9900;
+    --bg: #fdfeff;
+    --grey: #eaeaea;
+}
+@font-face {
+    font-family: 'myFont'; /* Name your custom font */
+    src: local('myFont'), url('../../assets/font/circular-std-medium-500.ttf') format('ttf'),
+         url('../../assets/font/circular-std-medium-500.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  

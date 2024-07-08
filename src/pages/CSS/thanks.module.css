@@ -1,0 +1,75 @@
+.container,
+.feedback {
+    padding: 0 6%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.container img {
+    max-width: 250px;
+    max-height: 300px;
+}
+
+.feedback {
+    padding: 25%;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    gap: 40px;
+    font-weight: bold;
+}
+
+.bigBtn {
+    padding: .7em;
+    background: #333;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    margin-top: 30px;
+}
+
+.controls p {
+    font-size: 12px;
+}
+
+.btn {
+    padding: .5em;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    align-items: center;
+    border: 1px solid #333;
+}
+
+@media screen and (min-width: 320px) {
+    .feedback {
+        padding: 15%;
+    }
+    .bigBtn{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .feedback {
+        padding-top: 3%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .bigBtn {
+        width: 50%;
+    }
+}

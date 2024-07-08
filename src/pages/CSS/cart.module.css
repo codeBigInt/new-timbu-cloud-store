@@ -1,0 +1,33 @@
+.cart_cont{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.left_cont, .right_cont{
+    width: 50%;
+    min-height: 100%;
+}
+.left_cont{
+    background: #FFF5E3;
+}
+.right_cont{
+    padding: 3% 5%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+@media screen and (max-width: 960px) {
+    .left_cont, .right_cont{
+        width: 100%;
+        background: white;
+    }
+}
+@media screen and (max-width: 480px) {
+    .left_cont{
+        background: var(--primaryColor);
+    }
+}

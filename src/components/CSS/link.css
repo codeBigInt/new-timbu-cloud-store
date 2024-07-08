@@ -1,0 +1,12 @@
+.navList{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+.link{
+    color: #333;
+    text-decoration: none;
+}
+.active{
+    color: var(--primaryColor);
+}

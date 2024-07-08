@@ -1,0 +1,13 @@
+.subTotal, .total{
+    margin-top: 2em;
+    padding: 1em 0;
+    border-bottom: 1px solid var(--grey);
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.total{
+    
+    border-bottom: 0;
+}

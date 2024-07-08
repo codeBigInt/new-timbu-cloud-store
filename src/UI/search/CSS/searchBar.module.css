@@ -1,0 +1,24 @@
+.container{
+    background: #eaeaea;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .2em;
+    padding: 0 1em;
+    width: max-content;
+    border-radius: 15px;
+}
+.enlarge{
+    width: 100%;
+    margin-top: 1.4em;
+}
+.icon{
+    color: #a6a6a6;
+}
+.input{
+    background: transparent;
+    height: max-content;
+    padding: 1em;
+    flex: 1;
+    color: #333;
+}
