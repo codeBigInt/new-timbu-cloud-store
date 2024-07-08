@@ -18,6 +18,8 @@
 }
 .one{
     background: #333;
+    color: #fff;
+    box-shadow: none;
 }
 .all{
     display: none;
