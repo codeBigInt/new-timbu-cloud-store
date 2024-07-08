@@ -35,14 +35,17 @@ const ProductTemplate = ({ item }) => {
         qty={qty}
       />
       <button
-        onClick={() =>
-          addItemToCart({
-            image,
-            id,
-            name,
-            price,
-            qty,
-          })
+        onClick={() =>{
+          if(qty > 0){
+            addItemToCart({
+              image,
+              id,
+              name,
+              price,
+              qty,
+            })
+          }
+        }
         }
         className={styles.add}
       >
