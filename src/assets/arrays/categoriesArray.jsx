@@ -7,6 +7,11 @@ import drinks from '../images/tropical-drink.png'
 
 export const categories = [
     {
+        id: 0,
+        image: vegtable,
+        text: 'All'
+    },
+    {
         id: 1,
         image: vegtable,
         text: 'Vegetables'
