@@ -15,6 +15,8 @@ import { products } from "../assets/arrays/productsArray";
 import { cartContext } from "../context/cartContext";
 
 const Checkout = () => {
+  const [messsage, setMessage] = useState("");
+  const [qty, setQty] = useState(0);
   const { mediaWidth } = useContext(mediaContext);
   const { addItemToCart } = useContext(cartContext);
   const { productid } = useParams();
@@ -31,7 +33,6 @@ const Checkout = () => {
     );
   }
 
-  const [qty, setQty] = useState(0);
   const incrementItem = () => {
     setQty((prev) => prev + 1);
   };
@@ -39,6 +40,13 @@ const Checkout = () => {
     if (qty > 0) {
       setQty((prev) => prev - 1);
     }
+  };
+  const showMessage = () => {
+    setMessage("Added to Cart Sucessfully");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
   };
 
   return (
@@ -93,19 +101,23 @@ const Checkout = () => {
             </div>
           </div>
           <button
-            onClick={() =>
+            onClick={() => {
               addItemToCart({
                 image: product.image,
                 id: product.id,
                 name: product.name,
                 price: product.price,
                 qty: qty,
-              })
-            }
+              });
+              showMessage();
+            }}
             className={styles.add}
           >
             Add To Cart
           </button>
+          <p>
+            <span style={{color: 'green'}}>{messsage}</span>
+          </p>
         </div>
       </div>
     </div>

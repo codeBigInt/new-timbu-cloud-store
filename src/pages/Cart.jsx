@@ -6,18 +6,6 @@ import { mediaContext } from "../context/mediaContext";
 
 const Cart = () => {
   const { mediaWidth } = useContext(mediaContext);
-  // const [paymentFieldIsDisplayed, setPaymentFieldIsDisplayed] = useState(false);
-
-  // const showPayment = () => {
-  //   paymentFieldIsDisplayed === false
-  //     ? setPaymentFieldIsDisplayed(true)
-  //     : setPaymentFieldIsDisplayed(false);
-  // };
-  // const closePayment = () => {
-  //   paymentFieldIsDisplayed === true
-  //     ? setPaymentFieldIsDisplayed(false)
-  //     : setPaymentFieldIsDisplayed(true);
-  // };
   return (
     <div className={styles.cart_cont}>
       <div className={styles.left_cont}>
