@@ -37,7 +37,7 @@
 }
 .add{
     background: var(--grey);
-    padding: .5em;
+    padding: .8em;
     border-radius: 10px;
 }
 .add:active{
