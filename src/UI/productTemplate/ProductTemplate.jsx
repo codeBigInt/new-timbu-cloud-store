@@ -6,30 +6,28 @@ import { cartContext } from "../../context/cartContext";
 
 const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
   const [qty, setQty] = useState(0);
-  const [pdtImg, setPdtImg] = useState('')
+  const [pdtImg, setPdtImg] = useState("");
 
-  const id = items.id
-  const name = items.name
-  const price = items.current_price[0].NGN[0]
-  const image = items.photos[0].url
-  const imgUrl = `https://api.timbu.cloud/images/${image}`
+  const id = items.id;
+  const name = items.name;
+  const price = items.current_price[0].NGN[0];
+  const image = items.photos[0].url;
+  const imgUrl = `https://api.timbu.cloud/images/${image}`;
   const { addItemToCart } = useContext(cartContext);
 
   useEffect(() => {
-    const productData = {...items}
+    const productData = { ...items };
     if (productData.photos && productData.photos.length > 0) {
-      const target = 'https://api.timbu.cloud/images/'
+      const target = "https://api.timbu.cloud/images/";
       const firstImageUrl = productData.photos[0].url; // Assuming the first element has the URL
-      const url = target + firstImageUrl
-      setPdtImg(url)
+      const url = target + firstImageUrl;
+      setPdtImg(url);
       // You can use this URL to display the image in your HTML using an img tag:
       // <img src="${firstImageUrl}" alt="Mini Avocado Pack">
     } else {
       console.log("No images found for product.");
     }
-
-  }, [items])
-
+  }, [items]);
 
   const incrementItem = () => {
     setQty((prev) => prev + 1);
@@ -57,23 +55,22 @@ const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
         qty={qty}
       />
       <button
-        onClick={() =>{
-          if(qty > 0){
+        onClick={() => {
+          if (qty > 0) {
             addItemToCart({
               pdtImg,
               id,
               name,
               price,
               qty,
-            })
+            });
           }
-          setNotification(true)
+          setNotification(true);
           setTimeout(() => {
-            setNotification(false)
-          }, 2000)
-          setErrMessage('Added To Cart Successfully')
-        }
-        }
+            setNotification(false);
+          }, 2000);
+          setErrMessage("Added To Cart Successfully");
+        }}
         className={styles.add}
       >
         Add To Cart

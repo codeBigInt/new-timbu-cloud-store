@@ -18,10 +18,12 @@ const ProductListing = () => {
   const productsPerPage = 10;
   const { mediaWidth } = useContext(mediaContext);
 
-  //API Details 
-  const apiKey = import.meta.env.VITE_API_KEY
-  const apiId = import.meta.env.VITE_API_ID
-  const orgId = import.meta.env.VITE_ORGANISATION_ID
+  //API Details
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiId = import.meta.env.VITE_API_ID;
+  const orgId = import.meta.env.VITE_ORGANISATION_ID;
+
+  //Time is up 
 
   console.log(`my apikey is :${apiKey}`);
 
@@ -31,19 +33,19 @@ const ProductListing = () => {
       fetch(apiUrl)
         .then((data) => data.json())
         .then((res) => {
-          setIsLoading(false)
+          setIsLoading(false);
           setProducts((prev) => {
             let data = { ...prev };
             data = res.items;
             console.log(data);
             return data;
-          })
+          });
           setNotification(true);
           setTimeout(() => {
             setNotification(false);
           }, 2000);
           setErrMessage("Finished Loading Succefully");
-    });
+        });
     } catch (error) {
       console.log(error);
     }
@@ -58,11 +60,13 @@ const ProductListing = () => {
   );
 
   const paginateLeft = () => {
-    currentPage >=1 ? setCurrentPage(prev => prev - 1) : setCurrentPage(1)
-  }
+    currentPage >= 1 ? setCurrentPage((prev) => prev - 1) : setCurrentPage(1);
+  };
   const paginateRight = () => {
-    currentPage < Math.ceil(products.length/productsPerPage) ? setCurrentPage(prev => prev + 1) : setCurrentPage(Math.ceil(products.length/productsPerPage))
-  }
+    currentPage < Math.ceil(products.length / productsPerPage)
+      ? setCurrentPage((prev) => prev + 1)
+      : setCurrentPage(Math.ceil(products.length / productsPerPage));
+  };
 
   return (
     <div className={styles.container}>
@@ -84,7 +88,7 @@ const ProductListing = () => {
             <Category text={item.text} image={item.image} key={item.id} />
           ))}
         </ul>
-        {loading? (
+        {loading ? (
           <p>Loading Products...</p>
         ) : (
           <ProductArea
