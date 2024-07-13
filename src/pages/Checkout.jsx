@@ -16,7 +16,7 @@ import { cartContext } from "../context/cartContext";
 
 const Checkout = () => {
   const [messsage, setMessage] = useState("");
-  const [pdtImg, setPdtImg] = useState('')
+  const [image, setImage] = useState('')
   const [product, setProduct] = useState({});
   const [qty, setQty] = useState(0);
   const { mediaWidth } = useContext(mediaContext);
@@ -31,7 +31,7 @@ const Checkout = () => {
 
 
   useEffect(async () => {
-    const apiUrl = `https://timbu-get-single-product.reavdev.workers.dev/${productid}?organization_id=${orgId}&Appid=${apiId}&Apikey=${apiKey}`;
+    const apiUrl = `https://timbu-get-single-product.reavdev.workers.dev/${productid}?organization_id=42ee7d297a3d43af9bf7a1cbdae1214f&Appid=5PRXE7WJ5CNDO2X&Apikey=ab9f547f6ce044eca4297ca54fb12aaa20240713173757018090`;
     fetch(`${apiUrl}`)
       .then((data) => data.json())
       .then((res) =>
@@ -52,10 +52,6 @@ const Checkout = () => {
 
   const productData = { ...product }; // Assuming your fetched data is in a variable
 
-  useEffect(() => {
-    setPdtImg(productData.photos && productData.photos.length > 0 ? `https://api.timbu.cloud/images/${productData.photos[0].url}` : '')
-
-  }, [product])
   // if (productData.photos && productData.photos.length > 0) {
   //   const target = 'https://api.timbu.cloud/images/'
   //   const firstImageUrl = productData.photos[0].url; 
@@ -146,7 +142,7 @@ const Checkout = () => {
           <button
             onClick={() => {
               addItemToCart({
-                image: pdtImg,
+                image: "",
                 id: id,
                 name: name,
                 price: price,

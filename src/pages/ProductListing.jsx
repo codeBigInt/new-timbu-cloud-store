@@ -23,10 +23,11 @@ const ProductListing = () => {
   const apiId = import.meta.env.VITE_API_ID
   const orgId = import.meta.env.VITE_ORGANISATION_ID
 
+  console.log(`my apikey is :${apiKey}`);
 
   useEffect(() => {
     try {
-      const apiUrl = `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${orgId}&Appid=${apiId}&Apikey=${apiKey}`;
+      const apiUrl = `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=42ee7d297a3d43af9bf7a1cbdae1214f&Appid=5PRXE7WJ5CNDO2X&Apikey=ab9f547f6ce044eca4297ca54fb12aaa20240713173757018090`;
       fetch(apiUrl)
         .then((data) => data.json())
         .then((res) => {
