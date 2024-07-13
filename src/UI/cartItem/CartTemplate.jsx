@@ -21,7 +21,7 @@ const CartTemplate = () => {
   const content = cart.map((item) => (
     <li key={item.id} className={styles.cartItem}>
     <div className={styles.details}>
-      <img src={item.image} alt="image" />
+      <img src={item.pdtImg} alt="image" />
       <div className={styles.info}>
         <p className={styles.name}><pre>{item.name}</pre></p>
         <p className={styles.price}>${item.price}</p>

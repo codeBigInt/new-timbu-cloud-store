@@ -47,7 +47,31 @@
 .active{
     color: var(--primaryColor);
 }
-
+.pagination_cont{
+    width: 100%;
+    display: flex;
+    margin: 40px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.move, .box{
+    padding: .5em;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+.pagination_control{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.box{
+    padding: .5em 1em;
+    font-size: 14px;
+}
 
 @media screen and (min-width: 960px) {
     .container{

@@ -11,27 +11,74 @@ import fried from "./images/fried-shrimp.png";
 import { FaChevronLeft } from "react-icons/fa";
 import Control from "../UI/controls/Control";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { products } from "../assets/arrays/productsArray";
+// import { products } from "../assets/arrays/productsArray";
 import { cartContext } from "../context/cartContext";
 
 const Checkout = () => {
   const [messsage, setMessage] = useState("");
+  const [pdtImg, setPdtImg] = useState('')
+  const [product, setProduct] = useState({});
   const [qty, setQty] = useState(0);
   const { mediaWidth } = useContext(mediaContext);
   const { addItemToCart } = useContext(cartContext);
   const { productid } = useParams();
   const navigate = useNavigate();
 
-  const product = products.find((pdt) => pdt.id === parseInt(productid));
+  //API config
+  const apiKey = import.meta.env.VITE_API_KEY
+  const apiId = import.meta.env.VITE_API_ID
+  const orgId = import.meta.env.VITE_ORGANISATION_ID
 
-  if (!product) {
-    return (
-      <div>
-        <h1>Opps no product found</h1>
-        <Link to={"/"}>Back to Products Page</Link>
-      </div>
-    );
-  }
+
+  useEffect(async () => {
+    const apiUrl = `https://timbu-get-single-product.reavdev.workers.dev/${productid}?organization_id=${orgId}&Appid=${apiId}&Apikey=${apiKey}`;
+    fetch(`${apiUrl}`)
+      .then((data) => data.json())
+      .then((res) =>
+        setProduct((prev) => {
+          let data = { ...prev };
+          data = res;
+          console.log(data);
+          return data;
+        })
+      );
+  }, [productid]);
+
+  // Creating display items
+  const id = product.id;
+  const name = product.name;
+  const description = product.description;
+  const price = product.current_price;
+
+  const productData = { ...product }; // Assuming your fetched data is in a variable
+
+  useEffect(() => {
+    setPdtImg(productData.photos && productData.photos.length > 0 ? `https://api.timbu.cloud/images/${productData.photos[0].url}` : '')
+
+  }, [product])
+  // if (productData.photos && productData.photos.length > 0) {
+  //   const target = 'https://api.timbu.cloud/images/'
+  //   const firstImageUrl = productData.photos[0].url; 
+  //   const
+  //   setImage(target + firstImageUrl)
+  //   // Assuming the first element has the URL
+  //   console.log("First Image URL:", firstImageUrl);
+  //   // You can use this URL to display the image in your HTML using an img tag:
+  //   // <img src="${firstImageUrl}" alt="Mini Avocado Pack">
+  // }
+  // const image = product.photos[0].url
+  // const imgUrl = `https://api.timbu.cloud/images/${image}`
+
+  // const product = products.find(item => item.id === productid)
+  // if (!product) {
+  //   return <div>Loading...</div>;
+  //   // return (
+  //   //   <div>
+  //   //     <h1>Opps no product found</h1>
+  //   //     <Link to={"/"}>Back to Products Page</Link>
+  //   //   </div>
+  //   // );
+  // }
 
   const incrementItem = () => {
     setQty((prev) => prev + 1);
@@ -61,11 +108,7 @@ const Checkout = () => {
           )}
           <div className={styles.view}>
             <div className={styles.imgHolder}>
-              <img
-                className={styles.img}
-                src={product.image}
-                alt="product you choose"
-              />
+              <img className={styles.img} src={productData.photos && productData.photos.length > 0 ? `https://api.timbu.cloud/images/${productData.photos[0].url}` : ''} alt="product you choose" />
             </div>
             <div className={styles.cont}>
               <Control
@@ -77,9 +120,9 @@ const Checkout = () => {
           </div>
         </div>
         <div className={styles.lower_cont}>
-          <h3 className={styles.product_detail}>{product.name}</h3>
-          <p className={styles.description}>{product.desc}</p>
-          <p className={styles.price}>${product.price}</p>
+          <h3 className={styles.product_detail}>{name}</h3>
+          <p className={styles.description}>{description}</p>
+          <p className={styles.price}>${price}</p>
           <div className={styles.ingredients}>
             <h2>Ingredients</h2>
             <div className={styles.ingrediennt_holder}>
@@ -103,10 +146,10 @@ const Checkout = () => {
           <button
             onClick={() => {
               addItemToCart({
-                image: product.image,
-                id: product.id,
-                name: product.name,
-                price: product.price,
+                image: pdtImg,
+                id: id,
+                name: name,
+                price: price,
                 qty: qty,
               });
               showMessage();
@@ -116,7 +159,7 @@ const Checkout = () => {
             Add To Cart
           </button>
           <p>
-            <span style={{color: 'green'}}>{messsage}</span>
+            <span style={{ color: "green" }}>{messsage}</span>
           </p>
         </div>
       </div>

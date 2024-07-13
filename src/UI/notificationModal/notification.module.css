@@ -1,0 +1,22 @@
+.notifier{
+    width: 80%;
+    padding: 1em;
+    background: white;
+    z-index: 100;
+    position: fixed;
+    gap: 1em;
+    display: flex ;
+    align-items: center;
+    right: 5%;bottom: 5%;
+    box-shadow: 1px -1px 15px rgba(0, 0, 0, .1), 1px -1px 15px rgba(0, 0, 0, .1);
+}
+.close{
+    color: var(--primaryColor);
+    font-weight: bolder;
+}
+
+@media screen and (min-width: 760px) {
+    .notifier{
+        width: 30%;
+    }
+}
