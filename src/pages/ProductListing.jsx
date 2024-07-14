@@ -19,13 +19,13 @@ const ProductListing = () => {
   const { mediaWidth } = useContext(mediaContext);
 
   //API Details
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const apiId = import.meta.env.VITE_API_ID;
-  const orgId = import.meta.env.VITE_ORGANISATION_ID;
+  // const apiKey = import.meta.env.VITE_API_KEY;
+  // const apiId = import.meta.env.VITE_API_ID;
+  // const orgId = import.meta.env.VITE_ORGANISATION_ID;
 
   //Time is up 
 
-  console.log(`my apikey is :${apiKey}`);
+  // console.log(`my apikey is :${apiKey}`);
 
   useEffect(() => {
     try {
