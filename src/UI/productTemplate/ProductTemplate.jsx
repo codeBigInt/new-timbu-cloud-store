@@ -47,7 +47,7 @@ const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
       </Link>
       <div className={styles.info}>
         <p>{name}</p>
-        <p className={styles.bold}>$ {price}</p>
+        <p className={styles.bold}>$ {price.toFixed(2)}</p>
       </div>
       <Control
         decrementItem={decrementItem}
