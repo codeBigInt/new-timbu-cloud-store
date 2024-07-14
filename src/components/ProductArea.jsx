@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./CSS/productArea.module.css";
 import ProductTemplate from "../UI/productTemplate/ProductTemplate";
-// import { products } from "../assets/arrays/productsArray";
 import { mediaContext } from "../context/mediaContext";
 
 const ProductArea = ({ products, setNotification, setErrMessage }) => {
@@ -9,11 +8,11 @@ const ProductArea = ({ products, setNotification, setErrMessage }) => {
 
   const filteredItems = products
     .filter((item) => {
-      // const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+      const matchesCategory = selectedCategory === 'All' || item.categories[0].name.toLowerCase() === selectedCategory.toLowerCase();
       const matchesSearchTerm = item.name
         .toLowerCase()
         .includes(search.toLowerCase());
-      return matchesSearchTerm;
+      return matchesSearchTerm && matchesCategory;
     })
     .map((item) => (
       <ProductTemplate
@@ -28,17 +27,6 @@ const ProductArea = ({ products, setNotification, setErrMessage }) => {
       {filteredItems.length > 1 ? filteredItems : <h3 style={{textAlign: 'center'}}>No Product Found <br /> Check the Next page</h3>}
     </ul>
   );
-  // return (
-  //   <ul className={styles.container}>
-  //     {products.map((item) => (
-  //       <ProductTemplate
-  //         items={item}
-  //         setNotification={setNotification}
-  //         setErrMessage={setErrMessage}
-  //       />
-  //     ))}
-  //   </ul>
-  // );
 };
 
 export default ProductArea;
