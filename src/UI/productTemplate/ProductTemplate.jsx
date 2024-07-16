@@ -70,7 +70,12 @@ const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
           }, 2000);
           setErrMessage("Added To Cart Successfully");
         }}
-          }
+         setNotification(true);
+        setTimeout(() => {
+          setNotification(false);
+        }, 2000);
+        setErrMessage("Order Quantity is less than 1 ");
+        }
           
         className={styles.add}
       >
