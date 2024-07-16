@@ -64,13 +64,14 @@ const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
               price,
               qty,
             });
-          }
-          setNotification(true);
+            setNotification(true);
           setTimeout(() => {
             setNotification(false);
           }, 2000);
           setErrMessage("Added To Cart Successfully");
         }}
+          }
+          
         className={styles.add}
       >
         Add To Cart
