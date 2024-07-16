@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
 
 const ProductTemplate = ({ items, setNotification, setErrMessage }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const [pdtImg, setPdtImg] = useState("");
 
   const id = items.id;
